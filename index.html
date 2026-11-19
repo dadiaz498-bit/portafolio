@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Portafolio David Díaz</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="David E. Díaz V. — diseñador gráfico, sitios web, apps y agentes de IA para WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: pliego de imprenta. Columna editorial alineada a la izquierda, marcas de corte como firma,
+   franja CMYK del diseñador y un lienzo de nodos para el proceso del agente. */
+:root{
+  --paper:#F2F4F9; --sheet:#FFFFFF; --ink:#1C1E4A; --ink-2:#4A4D78; --muted:#6E7196;
+  --line:#D9DCEA; --cyan:#0096C7; --cyan-soft:#DDF1F9; --navy:#2D2F5F; --on-navy:#F2F4F9;
+  --c:#00A0D6; --m:#D6267A; --y:#F2C230; --k:#1C1E4A;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"Figtree", "Segoe UI", system-ui, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, Consolas, monospace;
+  --shadow:0 1px 2px rgba(28,30,74,.06), 0 12px 32px -12px rgba(28,30,74,.18);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0F1126; --sheet:#171A36; --ink:#ECEEFA; --ink-2:#BFC2E0; --muted:#9093B8;
+  --line:#2B2F55; --cyan:#3EC3EE; --cyan-soft:#12304A; --navy:#22265A; --on-navy:#ECEEFA; --k:#ECEEFA;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 12px 32px -12px rgba(0,0,0,.6); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0F1126; --sheet:#171A36; --ink:#ECEEFA; --ink-2:#BFC2E0; --muted:#9093B8;
+  --line:#2B2F55; --cyan:#3EC3EE; --cyan-soft:#12304A; --navy:#22265A; --on-navy:#ECEEFA; --k:#ECEEFA;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 12px 32px -12px rgba(0,0,0,.6); color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+a{color:inherit}
+img{display:block;max-width:100%}
+h1,h2,h3{font-family:var(--display);line-height:1.05;margin:0;text-wrap:balance;letter-spacing:-.02em}
+p{margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.mono{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:4px}
+
+/* barra superior */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:24px;height:60px}
+.brand{font-family:var(--display);font-weight:800;font-size:19px;text-decoration:none;white-space:nowrap}
+.brand span{color:var(--cyan)}
+.nav{display:flex;gap:4px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{text-decoration:none;font-size:14.5px;font-weight:500;padding:6px 12px;border-radius:999px;white-space:nowrap;color:var(--ink-2)}
+.nav a:hover{background:var(--cyan-soft);color:var(--ink)}
+.nav a.cta{background:var(--ink);color:var(--paper)}
+@media (max-width:760px){.nav a:not(.cta){display:none}}
+
+/* hero */
+.hero{padding-block:64px 56px}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:56px;align-items:center}
+.eyebrow{display:flex;align-items:center;gap:10px;color:var(--muted)}
+.swatch{display:inline-flex;gap:3px}
+.swatch i{width:11px;height:11px;border-radius:2px;display:block}
+.hero h1{font-size:clamp(46px,8.4vw,104px);font-weight:800;margin-top:18px}
+.hero h1 em{font-style:normal;color:var(--cyan)}
+.lede{font-size:clamp(19px,2.1vw,23px);line-height:1.45;color:var(--ink-2);max-width:34ch;margin-top:22px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15.5px;text-decoration:none;padding:12px 20px;border-radius:10px;border:1.5px solid var(--ink);cursor:pointer;background:transparent;color:var(--ink);font-family:var(--body)}
+.btn.solid{background:var(--ink);color:var(--paper)}
+.btn:hover{transform:translateY(-1px)}
+.btn{transition:transform .15s}
+.portrait{position:relative;justify-self:center;width:min(100%,360px);padding:22px}
+.portrait img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:4px;filter:saturate(.92)}
+.crop{position:absolute;width:22px;height:22px;border-color:var(--ink);border-style:solid;border-width:0}
+.crop.tl{top:0;left:0;border-top-width:1.5px;border-left-width:1.5px}
+.crop.tr{top:0;right:0;border-top-width:1.5px;border-right-width:1.5px}
+.crop.bl{bottom:0;left:0;border-bottom-width:1.5px;border-left-width:1.5px}
+.crop.br{bottom:0;right:0;border-bottom-width:1.5px;border-right-width:1.5px}
+.portrait .slug{position:absolute;left:22px;bottom:-6px;transform:translateY(100%);color:var(--muted);font-size:11px;white-space:nowrap}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:56px;border-top:1.5px solid var(--ink)}
+.fact{padding:18px 18px 0 0}
+.fact b{display:block;font-family:var(--display);font-size:clamp(34px,4.6vw,52px);font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.fact span{display:block;color:var(--ink-2);font-size:15px;margin-top:8px;line-height:1.35}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:40px}.portrait{justify-self:start;width:min(100%,280px)}.facts{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:24px}}
+
+/* secciones */
+section{padding-block:88px}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:end;margin-bottom:44px}
+.sec-head .mono{color:var(--cyan);margin-bottom:12px}
+.sec-head h2{font-size:clamp(34px,5vw,58px);font-weight:800}
+.sec-head p{color:var(--ink-2);max-width:52ch}
+@media (max-width:760px){.sec-head{grid-template-columns:1fr;gap:16px}}
+.band{background:var(--sheet);border-block:1px solid var(--line)}
+
+/* sitios web */
+.sites{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:22px}
+.site{grid-column:span 2;display:flex;flex-direction:column;text-decoration:none;min-width:0}
+.site.wide{grid-column:span 3}
+.browser{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--sheet);box-shadow:var(--shadow)}
+.browser .bar{display:flex;align-items:center;gap:6px;padding:9px 12px;border-bottom:1px solid var(--line);background:var(--paper)}
+.browser .bar i{width:8px;height:8px;border-radius:50%;background:var(--line)}
+.browser .bar span{margin-left:8px;font-family:var(--mono);font-size:11.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.shot{aspect-ratio:4/3;overflow:hidden;max-width:100%}
+.shot img{width:100%;height:auto;transform:translateY(0);transition:transform 3.2s ease-in-out}
+.site:hover .shot img,.site:focus-visible .shot img{transform:translateY(calc(-100% + 300px))}
+.site.wide .shot{aspect-ratio:16/10}
+.site h3{font-size:22px;font-weight:600;margin-top:16px;display:flex;align-items:center;gap:8px}
+.site h3 .arrow{color:var(--cyan);transition:transform .2s}
+.site:hover h3 .arrow{transform:translate(3px,-3px)}
+.site p{color:var(--ink-2);font-size:15.5px;margin-top:4px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tag{font-family:var(--mono);font-size:11px;letter-spacing:.04em;padding:3px 8px;border-radius:5px;background:var(--cyan-soft);color:var(--ink);white-space:nowrap}
+@media (max-width:900px){.sites{grid-template-columns:repeat(2,minmax(0,1fr))}.site,.site.wide{grid-column:span 1}}
+@media (max-width:560px){.sites{grid-template-columns:1fr}}
+
+/* apps */
+.apps{display:grid;gap:28px}
+.app{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:40px;align-items:center;padding:28px;border:1px solid var(--line);border-radius:14px;background:var(--paper)}
+.app:nth-child(even) .app-media{order:2}
+.app-media{position:relative}
+.app-media .browser .shot{aspect-ratio:16/9}
+.app-media .shot img{height:100%;object-fit:cover;object-position:top left}
+.app-media button.zoom{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;text-align:left}
+.thumbs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}
+.thumbs button{padding:0;border:1px solid var(--line);border-radius:7px;overflow:hidden;background:var(--sheet);cursor:zoom-in;aspect-ratio:16/10}
+.thumbs button img{width:100%;height:100%;object-fit:cover;object-position:top left;transition:transform .3s}
+.thumbs button:hover img{transform:scale(1.04)}
+.thumbs button[aria-current="true"]{outline:2px solid var(--cyan);outline-offset:1px}
+.lock{position:absolute;top:52px;right:14px;font-family:var(--mono);font-size:11px;padding:4px 9px;border-radius:999px;background:var(--ink);color:var(--paper);white-space:nowrap}
+.app h3{font-size:clamp(26px,3vw,34px);font-weight:800}
+.app .client{color:var(--cyan);margin-bottom:10px}
+.app p{color:var(--ink-2);margin-top:12px}
+.app ul{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:9px}
+.app li{position:relative;padding-left:22px;font-size:15.5px}
+.app li::before{content:"";position:absolute;left:0;top:.62em;width:10px;height:2px;background:var(--cyan)}
+.app .nums{display:flex;flex-wrap:wrap;gap:22px;margin-top:20px;padding-top:16px;border-top:1px solid var(--line)}
+.app .nums div{font-size:13.5px;color:var(--muted)}
+.app .nums b{display:block;font-family:var(--display);font-size:28px;color:var(--ink);line-height:1.1;font-variant-numeric:tabular-nums}
+.app .link{display:inline-flex;margin-top:18px;font-weight:600;font-size:15px;color:var(--cyan);text-decoration:none;word-break:break-word}
+.app .link:hover{text-decoration:underline}
+@media (max-width:860px){.app{grid-template-columns:1fr;gap:24px;padding:18px}.app:nth-child(even) .app-media{order:0}}
+
+/* agente IA */
+.agent{background:var(--navy);color:var(--on-navy)}
+.agent .sec-head .mono{color:#7FD8F5}
+.agent .sec-head p{color:color-mix(in srgb,var(--on-navy) 78%,transparent)}
+.canvas{position:relative;border-radius:16px;padding:28px;background-color:color-mix(in srgb,var(--navy) 80%,#000);
+  background-image:radial-gradient(color-mix(in srgb,var(--on-navy) 16%,transparent) 1px,transparent 1.4px);background-size:20px 20px;overflow-x:auto}
+.flow{display:grid;grid-template-columns:repeat(4,minmax(220px,1fr));gap:34px 40px;min-width:960px;counter-reset:n}
+.node{position:relative;background:color-mix(in srgb,var(--navy) 55%,#FFF 6%);border:1px solid color-mix(in srgb,var(--on-navy) 22%,transparent);border-radius:12px;padding:16px 16px 18px;counter-increment:n}
+.node::before{content:counter(n,decimal-leading-zero);position:absolute;top:14px;right:14px;font-family:var(--mono);font-size:11px;color:color-mix(in srgb,var(--on-navy) 50%,transparent)}
+.node .ico{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;margin-bottom:12px;background:#7FD8F5;color:#13163A}
+.node .ico svg{width:19px;height:19px}
+.node h4{font-family:var(--display);font-size:18px;font-weight:600;margin:0 0 6px;letter-spacing:-.01em}
+.node p{font-size:14.5px;line-height:1.5;color:color-mix(in srgb,var(--on-navy) 80%,transparent)}
+.node .tool{display:inline-block;margin-top:10px;font-family:var(--mono);font-size:11px;padding:2px 7px;border-radius:4px;border:1px solid color-mix(in srgb,var(--on-navy) 25%,transparent);color:#7FD8F5}
+.node:not(.end)::after{content:"";position:absolute;top:50%;right:-41px;width:40px;height:2px;background:#7FD8F5;opacity:.7}
+.node.hand{border-color:#F2C230}
+.node.hand .ico{background:#F2C230}
+.flow-row-link{grid-column:1/-1;height:18px;position:relative;margin:-24px 0}
+.flow-row-link::before{content:"";position:absolute;right:calc(12.5% - 10px);left:calc(12.5% - 10px);top:8px;border:2px solid #7FD8F5;border-top:0;border-bottom:0;height:0;opacity:.7}
+.flow-hint{margin-top:14px;font-size:12px;color:color-mix(in srgb,var(--on-navy) 55%,transparent)}
+@media (min-width:1000px){.flow-hint{display:none}}
+
+.method{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:64px;border-top:1px solid color-mix(in srgb,var(--on-navy) 25%,transparent)}
+.step{padding:22px 22px 26px 0;border-bottom:1px solid color-mix(in srgb,var(--on-navy) 25%,transparent)}
+.step .mono{color:#7FD8F5}
+.step h4{font-family:var(--display);font-size:21px;font-weight:600;margin:8px 0 6px}
+.step p{font-size:15px;color:color-mix(in srgb,var(--on-navy) 78%,transparent);max-width:34ch}
+@media (max-width:860px){.method{grid-template-columns:1fr}}
+.wins{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:56px}
+.win{padding:22px;border-radius:12px;background:color-mix(in srgb,var(--navy) 70%,#000)}
+.win b{font-family:var(--display);font-size:20px;display:block;margin-bottom:6px}
+.win p{font-size:15px;color:color-mix(in srgb,var(--on-navy) 78%,transparent)}
+@media (max-width:860px){.wins{grid-template-columns:1fr}}
+.stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:40px}
+.stack span{font-family:var(--mono);font-size:12px;padding:6px 11px;border-radius:999px;border:1px solid color-mix(in srgb,var(--on-navy) 28%,transparent);white-space:nowrap}
+
+/* diseño */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.filters button{font-family:var(--body);font-size:14.5px;font-weight:500;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink-2);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.works{columns:3 300px;column-gap:22px}
+.work{break-inside:avoid;margin-bottom:22px;display:block;width:100%;text-align:left;padding:0;border:0;background:none;color:inherit;font:inherit;cursor:zoom-in}
+.work .frame{border-radius:10px;overflow:hidden;background:var(--sheet);border:1px solid var(--line)}
+.work img{width:100%;height:auto;transition:transform .5s}
+.work:hover img{transform:scale(1.03)}
+.work .cap{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:12px 2px 0}
+.work .cap b{font-family:var(--display);font-size:18px;font-weight:600;line-height:1.25}
+.work .cap span{color:var(--muted);font-size:12px;white-space:nowrap}
+.work .count{font-family:var(--mono);font-size:11px;color:var(--cyan);margin-top:3px;padding-inline:2px}
+.video-card{break-inside:avoid;margin-bottom:22px}
+.video-card video{width:100%;border-radius:10px;border:1px solid var(--line);background:#000;display:block}
+
+/* trayectoria */
+.cv{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:64px}
+.timeline{list-style:none;margin:0;padding:0;border-left:1.5px solid var(--ink)}
+.timeline li{position:relative;padding:0 0 30px 26px}
+.timeline li::before{content:"";position:absolute;left:-6px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--paper);border:2px solid var(--ink)}
+.timeline li.now::before{background:var(--cyan);border-color:var(--cyan)}
+.timeline .when{color:var(--muted)}
+.timeline h3{font-size:22px;font-weight:600;margin-top:4px}
+.timeline .role{color:var(--cyan);font-weight:600;font-size:15px}
+.timeline p{color:var(--ink-2);font-size:15.5px;margin-top:6px;max-width:60ch}
+.side h3{font-size:20px;font-weight:600;margin-bottom:14px}
+.side + .side{margin-top:40px}
+.skills{display:grid;gap:10px}
+.skill{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;font-size:15.5px}
+.dots{display:flex;gap:4px}
+.dots i{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.dots i.on{background:var(--ink)}
+.edu{display:grid;gap:14px}
+.edu div{font-size:15px;color:var(--ink-2)}
+.edu b{display:block;color:var(--ink);font-size:16px}
+.certs{display:grid;gap:18px}
+.cert-group .mono{color:var(--cyan);font-size:11.5px;margin-bottom:6px}
+.cert-group ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.cert-group li{display:flex;justify-content:space-between;gap:12px;font-size:15px;color:var(--ink-2);border-bottom:1px solid var(--line);padding-bottom:6px}
+.cert-group li span{font-family:var(--mono);font-size:12px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.timeline{align-self:start}
+.certs-wide{margin-top:56px;padding-top:32px;border-top:1.5px solid var(--ink)}
+.certs-wide h3{font-size:20px;font-weight:600;margin-bottom:20px}
+.certs-wide .certs{grid-template-columns:repeat(3,minmax(0,1fr));gap:36px;align-items:start}
+@media (max-width:860px){.certs-wide .certs{grid-template-columns:1fr}}
+@media (max-width:860px){.cv{grid-template-columns:1fr;gap:48px}}
+
+/* contacto */
+.contact{background:var(--ink);color:var(--paper);padding-block:96px}
+.contact h2{font-size:clamp(40px,7vw,88px);font-weight:800;max-width:14ch}
+.contact h2 em{font-style:normal;color:var(--cyan)}
+.contact-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:48px}
+.cbox{border-top:1.5px solid color-mix(in srgb,var(--paper) 35%,transparent);padding-top:16px;min-width:0}
+.cbox .mono{opacity:.65}
+.cbox .val{font-family:var(--display);font-size:clamp(20px,2.4vw,26px);font-weight:600;margin-top:8px;word-break:break-word;user-select:all}
+.cbox .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.cbox button,.cbox a.mini{font-family:var(--body);font-size:13.5px;font-weight:600;padding:6px 12px;border-radius:8px;border:1px solid color-mix(in srgb,var(--paper) 40%,transparent);background:transparent;color:var(--paper);cursor:pointer;text-decoration:none;white-space:nowrap}
+.cbox button:hover,.cbox a.mini:hover{background:color-mix(in srgb,var(--paper) 12%,transparent)}
+@media (max-width:760px){.contact-grid{grid-template-columns:1fr}}
+footer{background:var(--ink);color:color-mix(in srgb,var(--paper) 55%,transparent);font-size:13px;padding-block:22px;border-top:1px solid color-mix(in srgb,var(--paper) 15%,transparent)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* visor */
+dialog.viewer{border:0;padding:0;background:transparent;max-width:100vw;max-height:100vh;width:100vw;height:100vh;margin:0}
+dialog.viewer::backdrop{background:rgba(10,11,28,.9)}
+.vwrap{height:100%;display:grid;grid-template-rows:auto minmax(0,1fr) auto;color:#F2F4F9;padding:max(14px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(14px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.vtop{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.vtop b{font-family:var(--display);font-size:20px}
+.vimg{min-height:0;position:relative;overflow:hidden;margin-block:12px}
+.vimg img{position:absolute;inset:0;margin:auto;max-width:100%;max-height:100%;object-fit:contain;border-radius:6px}
+.vimg.tall{overflow:auto}
+.vimg.tall img{position:static;max-height:none;max-width:min(100%,900px);margin:0 auto}
+.vbot{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.vbot p{font-size:14.5px;opacity:.8;max-width:70ch}
+.vbtn{background:rgba(255,255,255,.1);color:#F2F4F9;border:1px solid rgba(255,255,255,.25);border-radius:8px;padding:8px 14px;font-family:var(--body);font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap}
+.vbtn:disabled{opacity:.3;cursor:default}
+.vnav{display:flex;gap:8px;align-items:center}
+.vnav span{font-family:var(--mono);font-size:12px;opacity:.7;white-space:nowrap}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio">David Díaz<span>.</span></a>
+    <nav class="nav" aria-label="Secciones">
+      <a href="#sitios">Sitios web</a>
+      <a href="#apps">Apps</a>
+      <a href="#agente">Agente IA</a>
+      <a href="#diseno">Diseño</a>
+      <a href="#trayectoria">Trayectoria</a>
+      <a class="cta" href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow mono"><span class="swatch" aria-hidden="true"><i style="background:var(--c)"></i><i style="background:var(--m)"></i><i style="background:var(--y)"></i><i style="background:var(--k)"></i></span>Diseñador gráfico · Bogotá, Colombia</div>
+        <h1>David E. <br>Díaz <em>V.</em></h1>
+        <p class="lede">Diseño piezas gráficas, construyo sitios web y monto agentes de IA que atienden a los clientes de una empresa por WhatsApp, día y noche.</p>
+        <div class="hero-actions">
+          <a class="btn solid" href="#agente">Ver cómo trabaja el agente</a>
+          <a class="btn" href="#contacto">Contactarme</a>
+        </div>
+      </div>
+      <figure class="portrait" style="margin:0">
+        <img src="img/david.webp" alt="Retrato de David Díaz" width="394" height="394">
+        <i class="crop tl"></i><i class="crop tr"></i><i class="crop bl"></i><i class="crop br"></i>
+        <figcaption class="slug mono">DDV · retrato · 1:1</figcaption>
+      </figure>
+    </div>
+    <div class="wrap">
+      <div class="facts">
+        <div class="fact"><b>15</b><span>años en K-Media, desde 2011</span></div>
+        <div class="fact"><b>5</b><span>sitios web en línea que muestro aquí</span></div>
+        <div class="fact"><b>3</b><span>apps web en producción</span></div>
+        <div class="fact"><b>+20</b><span>empresas atendidas con agentes de IA</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sitios" class="band">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="mono">Sitios web</div><h2>Sitios que diseñé y mantengo</h2></div>
+        <p>Diseño, montaje en WordPress, hosting y mantenimiento. Pasa el cursor sobre cada sitio para recorrer la página completa.</p>
+      </div>
+      <div class="sites">
+        <a class="site wide" href="https://transipialesvirtual.com/" target="_blank" rel="noopener">
+          <div class="browser"><div class="bar"><i></i><i></i><i></i><span>transipialesvirtual.com</span></div><div class="shot"><img src="img/web-transipiales.webp" alt="Página de inicio de Transipiales" loading="lazy"></div></div>
+          <h3>Transipiales S.A. <span class="arrow">↗</span></h3>
+          <p>Empresa de transporte de pasajeros desde 1959. Venta de tiquetes, rutas y agencias.</p>
+          <div class="tags"><span class="tag">WordPress</span><span class="tag">Venta de tiquetes</span><span class="tag">Agente IA</span></div>
+        </a>
+        <a class="site wide" href="https://umecit.edu.pa/" target="_blank" rel="noopener">
+          <div class="browser"><div class="bar"><i></i><i></i><i></i><span>umecit.edu.pa</span></div><div class="shot"><img src="img/web-umecit.webp" alt="Página de inicio de UMECIT" loading="lazy"></div></div>
+          <h3>UMECIT, Panamá <span class="arrow">↗</span></h3>
+          <p>Universidad con programas académicos, noticias, eventos y campus virtual.</p>
+          <div class="tags"><span class="tag">WordPress</span><span class="tag">Educación</span><span class="tag">Multilenguaje</span></div>
+        </a>
+        <a class="site" href="https://kmedia.co/" target="_blank" rel="noopener">
+          <div class="browser"><div class="bar"><i></i><i></i><i></i><span>kmedia.co</span></div><div class="shot"><img src="img/web-kmedia.webp" alt="Página de inicio de K-Media" loading="lazy"></div></div>
+          <h3>K-Media <span class="arrow">↗</span></h3>
+          <p>Agencia de transformación digital e inbound marketing.</p>
+          <div class="tags"><span class="tag">WordPress</span><span class="tag">Agencia</span></div>
+        </a>
+        <a class="site" href="https://transaire.net/" target="_blank" rel="noopener">
+          <div class="browser"><div class="bar"><i></i><i></i><i></i><span>transaire.net</span></div><div class="shot"><img src="img/web-transaire.webp" alt="Página de inicio de TransAire" loading="lazy"></div></div>
+          <h3>TransAire <span class="arrow">↗</span></h3>
+          <p>Aire acondicionado y refrigeración para vehículos de transporte.</p>
+          <div class="tags"><span class="tag">WordPress</span><span class="tag">Industrial</span></div>
+        </a>
+        <a class="site" href="https://eljardindelarcoiris.com/" target="_blank" rel="noopener">
+          <div class="browser"><div class="bar"><i></i><i></i><i></i><span>eljardindelarcoiris.com</span></div><div class="shot"><img src="img/web-jardin.webp" alt="Página de inicio de El Jardín del Arcoíris" loading="lazy"></div></div>
+          <h3>El Jardín del Arcoíris <span class="arrow">↗</span></h3>
+          <p>Jardín infantil con 29 años: pedagogía, galería y admisiones.</p>
+          <div class="tags"><span class="tag">WordPress</span><span class="tag">Educación</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="apps">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="mono">Apps web</div><h2>Paneles que alimentan a los agentes</h2></div>
+        <p>Aplicaciones propias, desplegadas en Docker sobre Easypanel. El equipo de cada empresa mantiene aquí la información que el agente de IA consulta en cada conversación.</p>
+      </div>
+      <div class="apps">
+        <article class="app">
+          <div class="app-media">
+            <div class="appgal" data-app="albo"></div>
+          </div>
+          <div>
+            <div class="client mono">Alboeventos · Ecuador</div>
+            <h3>Catálogo de Alexa</h3>
+            <p>Reemplazó un Google Sheet. El equipo edita precios, paquetes, políticas y mensajes oficiales, y Alexa, la asistente de WhatsApp, responde con eso al instante.</p>
+            <ul>
+              <li>13 hojas: precios, paquetes y combos, bocaditos, preguntas frecuentes, políticas, horarios</li>
+              <li>Flujo de calificación: las preguntas para cotizar, en orden</li>
+              <li>Fotos y videos por categoría para que el agente los envíe</li>
+              <li>Solo da precios marcados como confirmados</li>
+            </ul>
+            <a class="link" href="https://web-agentekmedia-demo-alboeventos-panel.c6vor5.easypanel.host/" target="_blank" rel="noopener">Abrir el panel ↗</a>
+          </div>
+        </article>
+        <article class="app">
+          <div class="app-media">
+            <div class="appgal" data-app="trans"></div>
+          </div>
+          <div>
+            <div class="client mono">Transipiales S.A. · Colombia</div>
+            <h3>Panel de rutas</h3>
+            <p>Rutas, horarios, líneas de servicio y agencias en un solo lugar. El agente busca la salida exacta que pide el pasajero y nunca se inventa un horario.</p>
+            <ul>
+              <li>Entiende «puerto asis» y «Puerto Asís» como la misma ciudad</li>
+              <li>Si no hay ruta directa, sugiere conexiones y destinos con servicio</li>
+              <li>Teléfonos, direcciones y horarios de cada agencia</li>
+              <li>Node.js 22 y SQLite, sin dependencias externas</li>
+            </ul>
+            <div class="nums"><div><b>60</b>rutas</div><div><b>191</b>horarios</div><div><b>50</b>agencias</div></div>
+            <a class="link" href="https://web-agentekmedia-demo-transipiales-panel.c6vor5.easypanel.host/" target="_blank" rel="noopener">Abrir el panel ↗</a>
+          </div>
+        </article>
+        <article class="app">
+          <div class="app-media">
+            <div class="appgal" data-app="dash"></div>
+          </div>
+          <div>
+            <div class="client mono">K-Media · uso interno</div>
+            <h3>CRM y tablero de agentes</h3>
+            <p>Tablero del equipo para administrar a los clientes que tienen agente de IA: sus prompts, su cuenta de Kommo y el avance de cada proyecto.</p>
+            <div class="nums"><div><b>21</b>clientes</div><div><b>23</b>carpetas de prompts</div><div><b>12</b>vistas de Kommo</div></div>
+            <ul>
+              <li>Tablero Kanban de clientes por etapa, con notas y línea de tiempo</li>
+              <li>Visor de prompts y configuración de Kommo por cliente</li>
+              <li>Usuarios con roles y permisos, creados desde el mismo panel</li>
+              <li>Supabase: login, base de datos y reglas de acceso por fila</li>
+            </ul>
+            <a class="link" href="https://agent-demo-kmedia-dashboard.c6vor5.easypanel.host/" target="_blank" rel="noopener">Abrir el panel ↗</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="agente" class="agent">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="mono">Agentes de IA para WhatsApp</div><h2>Así atiende un agente, mensaje a mensaje</h2></div>
+        <p>Cada agente responde, califica y agenda en el WhatsApp de la empresa, y deja todo registrado en el CRM. Lo construyo en n8n, conectado a Kommo. Este es el recorrido de un mensaje.</p>
+      </div>
+
+      <div class="canvas">
+        <div class="flow">
+          <div class="node">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.8 7L4 20l1-5A8 8 0 1 1 21 12z"/></svg></div>
+            <h4>Llega el mensaje</h4>
+            <p>El cliente escribe por WhatsApp, Instagram o Facebook. Todo entra al CRM Kommo como un lead.</p>
+            <span class="tool">Kommo</span>
+          </div>
+          <div class="node">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M14 6l6 6-6 6"/></svg></div>
+            <h4>Intermediario</h4>
+            <p>Kommo espera solo 2 segundos. El intermediario guarda el mensaje, contesta al instante y se lo pasa a n8n sin duplicados.</p>
+            <span class="tool">Node.js · PostgreSQL</span>
+          </div>
+          <div class="node">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h6"/></svg></div>
+            <h4>Agrupa los mensajes</h4>
+            <p>Si la persona manda tres mensajes seguidos, el agente espera y los lee juntos para dar una sola respuesta.</p>
+            <span class="tool">n8n · buffer</span>
+          </div>
+          <div class="node end">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M5 21v-1a7 7 0 0 1 14 0v1"/></svg></div>
+            <h4>Director</h4>
+            <p>Lee la conversación y los datos del lead, entiende qué necesita y elige qué especialista responde.</p>
+            <span class="tool">Agente IA</span>
+          </div>
+          
+          <div class="node">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/></svg></div>
+            <h4>Especialista</h4>
+            <p>Hay uno por línea de negocio. Consulta el catálogo de la empresa y sigue las preguntas de calificación en orden.</p>
+            <span class="tool">Google Sheets · panel propio</span>
+          </div>
+          <div class="node">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18"/></svg></div>
+            <h4>Agenda y cotiza</h4>
+            <p>Agenda citas con la fecha y hora reales de Colombia, sin festivos ni cruces. Arma cotizaciones con precios confirmados.</p>
+            <span class="tool">Google Calendar</span>
+          </div>
+          <div class="node">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7 9 18l-5-5"/></svg></div>
+            <h4>Responde y registra</h4>
+            <p>Envía la respuesta y actualiza el CRM: llena los campos, pone etiquetas, mueve el lead en el embudo y crea tareas al asesor.</p>
+            <span class="tool">Kommo API</span>
+          </div>
+          <div class="node hand end">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg></div>
+            <h4>Pasa a una persona</h4>
+            <p>Si el cliente pide un asesor o algo se sale de lo permitido, el bot se pausa y el equipo recibe un aviso en Telegram con el motivo.</p>
+            <span class="tool">Stop IA · Telegram</span>
+          </div>
+        </div>
+        <p class="flow-hint mono">Desliza para ver el recorrido completo →</p>
+      </div>
+
+      <div class="wins">
+        <div class="win"><b>Ningún mensaje sin respuesta</b><p>Antes del intermediario, 1 de cada 15 mensajes se perdía porque el agente tardaba más de lo que Kommo espera. Ahora todos se guardan y se reintentan.</p></div>
+        <div class="win"><b>Seguimiento a las 24 horas</b><p>Un flujo programado recupera las conversaciones que se quedaron quietas, con plantillas de WhatsApp aprobadas por Meta.</p></div>
+        <div class="win"><b>La empresa controla el contenido</b><p>Precios, políticas y preguntas viven en una hoja o un panel que el cliente edita. El agente lo lee en vivo, sin tocar el prompt.</p></div>
+      </div>
+
+      <div class="method">
+        <div class="step"><div class="mono">Paso 1</div><h4>Levantamiento</h4><p>Con el cliente armo el catálogo, las políticas y las preguntas para calificar a cada interesado.</p></div>
+        <div class="step"><div class="mono">Paso 2</div><h4>Prompts y flujos</h4><p>Escribo el prompt del director y de cada especialista, y conecto sus herramientas en n8n.</p></div>
+        <div class="step"><div class="mono">Paso 3</div><h4>CRM listo</h4><p>Configuro Kommo: campos, embudos, etiquetas, salesbots y plantillas de WhatsApp.</p></div>
+        <div class="step"><div class="mono">Paso 4</div><h4>Pruebas con chats reales</h4><p>Pruebo conversaciones reales, anoto cada hallazgo y lo corrijo antes de salir en vivo.</p></div>
+        <div class="step"><div class="mono">Paso 5</div><h4>Manual y capacitación</h4><p>Entrego un manual de uso y enseño al equipo a pausar el bot, editar el catálogo y leer el CRM.</p></div>
+        <div class="step"><div class="mono">Paso 6</div><h4>En vivo y monitoreo</h4><p>Publico el agente y reviso las conversaciones para afinar respuestas y tono.</p></div>
+      </div>
+
+      <div class="stack" aria-label="Herramientas">
+        <span>n8n</span><span>Kommo CRM</span><span>OpenAI</span><span>WhatsApp Business</span><span>Google Sheets</span><span>Google Calendar</span><span>Supabase</span><span>Node.js</span><span>PostgreSQL</span><span>SQLite</span><span>Docker</span><span>Easypanel</span><span>Telegram</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="diseno" class="band">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="mono">Diseño gráfico</div><h2>Piezas, identidad e infografía</h2></div>
+        <p>Email marketing, identidad corporativa, infografías, señalética, interfaces de apps y animación. Haz clic en cualquier pieza para verla en grande.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Filtrar piezas">
+        <button type="button" data-f="all" aria-pressed="true">Todo</button>
+        <button type="button" data-f="email" aria-pressed="false">Email marketing</button>
+        <button type="button" data-f="redes" aria-pressed="false">Redes sociales</button>
+        <button type="button" data-f="identidad" aria-pressed="false">Identidad</button>
+        <button type="button" data-f="info" aria-pressed="false">Infografía y señalética</button>
+        <button type="button" data-f="ui" aria-pressed="false">Apps y web</button>
+        <button type="button" data-f="ilustra" aria-pressed="false">Ilustración y video</button>
+      </div>
+      <div class="works" id="works"></div>
+    </div>
+  </section>
+
+  <section id="trayectoria">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="mono">Trayectoria</div><h2>Experiencia y formación</h2></div>
+        <p>Diseñador gráfico de la Fundación Universitaria Los Libertadores. Me gusta proponer ideas desde el inicio de un proyecto y llevarlas hasta que funcionan.</p>
+      </div>
+      <div class="cv">
+        <ol class="timeline">
+          <li class="now">
+            <div class="when mono">2011 — hoy</div>
+            <h3>K-Media</h3>
+            <div class="role">Diseñador gráfico · Webmaster · Automatización con IA</div>
+            <p>Diseño y mantenimiento de sitios en WordPress, hosting y bases de datos, email marketing y diseño gráfico en general. Hoy también monto agentes de IA en n8n con Kommo, desarrollo los paneles que los alimentan y limpio sitios web hackeados.</p>
+          </li>
+          <li>
+            <div class="when mono">Freelance</div>
+            <h3>Alejandra Fernández</h3>
+            <div class="role">Diseñador gráfico</div>
+            <p>Piezas gráficas y community manager.</p>
+          </li>
+          <li>
+            <div class="when mono">Freelance</div>
+            <h3>Fabal</h3>
+            <div class="role">Diseñador gráfico</div>
+            <p>Piezas gráficas y diseño de sitios web.</p>
+          </li>
+          <li>
+            <div class="when mono">2010 — 2011</div>
+            <h3>Universal Brands</h3>
+            <div class="role">Asistente de diseño gráfico</div>
+            <p>Manejo y diseño de sitios web, y community manager.</p>
+          </li>
+          <li>
+            <div class="when mono">2008 — 2009</div>
+            <h3>Universidad EAN</h3>
+            <div class="role">Soporte técnico</div>
+            <p>Verificación y monitoreo de equipos de telecomunicaciones.</p>
+          </li>
+        </ol>
+        <div>
+          <div class="side">
+            <h3>Herramientas</h3>
+            <div class="skills" id="skills"></div>
+          </div>
+          <div class="side">
+            <h3>Formación</h3>
+            <div class="edu">
+              <div><b>Diseño Gráfico</b>Fundación Universitaria Los Libertadores · 2019</div>
+              <div><b>Taller de Google Analytics</b>Partners Academy · 2018</div>
+              <div><b>Taller de tipografía</b>Fundación Universitaria Los Libertadores · 2008</div>
+              <div><b>Curso de Photoshop</b>SENA · 2003</div>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="certs-wide">
+          <h3>Certificados Platzi <span class="mono" style="color:var(--muted);font-size:12px">17 cursos</span></h3>
+          <div class="certs">
+            <div class="cert-group"><div class="mono">IA y automatización</div><ul>
+              <li>Prompt Engineering <span>2026</span></li>
+              <li>n8n <span>2025</span></li>
+              <li>Creación de Páginas Web con ChatGPT <span>2025</span></li>
+              <li>Diseño Ético de Productos Digitales con IA <span>2023</span></li>
+              <li>Prompt Engineering con ChatGPT <span>2023</span></li>
+              <li>Generación de Imágenes con IA: DALL·E, Midjourney y Stable Diffusion <span>2023</span></li>
+              <li>Taller de Creación de Contenido con IA <span>2023</span></li>
+              <li>IA para Content Marketing <span>2023</span></li>
+            </ul></div>
+            <div class="cert-group"><div class="mono">UX/UI y diseño</div><ul>
+              <li>Usabilidad: Principios, Pruebas y Herramientas <span>2024</span></li>
+              <li>Diseño Centrado en Usuario <span>2024</span></li>
+              <li>Figma Básico <span>2024</span></li>
+              <li>Fundamentos de Diseño de Interfaces UX/UI <span>2024</span></li>
+              <li>Audiotaller de Resolución de Problemas <span>2024</span></li>
+            </ul></div>
+            <div class="cert-group"><div class="mono">Desarrollo web</div><ul>
+              <li>Fundamentos de Ingeniería de Software <span>2026</span></li>
+              <li>Programación Básica <span>2024</span></li>
+              <li>Tiendas en Línea con WooCommerce <span>2021</span></li>
+              <li>Temas y Plugins en WordPress <span>2020</span></li>
+            </ul></div>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="contact">
+    <div class="wrap">
+      <div class="mono" style="opacity:.65">Contacto</div>
+      <h2 style="margin-top:14px">¿Tiene un proyecto? <em>Hablemos.</em></h2>
+      <div class="contact-grid">
+        <div class="cbox">
+          <div class="mono">Correo</div>
+          <div class="val" id="v-mail">dadiaz498@gmail.com</div>
+          <div class="acts"><button type="button" data-copy="v-mail">Copiar</button></div>
+        </div>
+        <div class="cbox">
+          <div class="mono">Celular y WhatsApp</div>
+          <div class="val" id="v-tel">+57 311 892 1044</div>
+          <div class="acts"><button type="button" data-copy="v-tel">Copiar</button><a class="mini" href="https://wa.me/573118921044" target="_blank" rel="noopener">Escribir por WhatsApp ↗</a></div>
+        </div>
+        <div class="cbox">
+          <div class="mono">Hoja de vida</div>
+          <div class="val">bit.ly/D4viDi4z</div>
+          <div class="acts"><a class="mini" href="https://bit.ly/D4viDi4z" target="_blank" rel="noopener">Abrir ↗</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap"><span>David E. Díaz V. · Diseñador gráfico</span><span>Bogotá, Colombia · 2026</span></div></footer>
+
+<dialog class="viewer" id="viewer" aria-label="Visor de piezas">
+  <div class="vwrap">
+    <div class="vtop"><b id="v-title"></b><button class="vbtn" type="button" id="v-close">Cerrar ✕</button></div>
+    <div class="vimg" id="v-box"><img id="v-img" alt=""></div>
+    <div class="vbot"><p><span id="v-desc"></span> <a id="v-link" href="#" target="_blank" rel="noopener" style="color:#7FD8F5;white-space:nowrap" hidden>Ver en Behance ↗</a></p><div class="vnav"><button class="vbtn" type="button" id="v-prev">←</button><span id="v-count"></span><button class="vbtn" type="button" id="v-next">→</button></div></div>
+  </div>
+</dialog>
+
+<script>
+const WORKS=[
+ {f:'email',t:'Email marketing médico',c:'Clínica Leonardo Pinzón',d:'Campaña mensual de correos para una clínica de medicina biológica: promociones por temporada, el Mundial y el Día del Amor y la Amistad.',imgs:['email-imac','email-01','email-02','email-03','email-05','email-06']},
+ {f:'identidad ilustra info',t:'Kit Mini Chef',c:'Design thinking · Obesidad',link:'https://www.behance.net/gallery/214569093/Design-Thinking-Obesidad',
+  d:'Proyecto de design thinking contra la obesidad infantil en Bogotá, hecho en equipo.',
+  imgs:['obe-38','obe-01','obe-05','obe-08','obe-13','obe-19','obe-33','obe-35','obe-39','obe-43','obe-44','obe-45','obe-46','obe-48','obe-50','obesidad-mockup'],
+  caps:['La marca Kit Mini Chef, resultado del proceso de design thinking','Portada del proyecto, hecho en equipo con David Manzanares y Jorge Andrés Tapias','Infografía: causas, consecuencias y prevención de la obesidad','Recolección de información: 74 encuestas en Bogotá','Análisis de las respuestas de la encuesta','Diagnóstico: el problema de la obesidad en las familias de Bogotá','Parámetros de composición: tipografía, color, íconos y personaje','Bocetos a mano del personaje','Sam el conejo, el personaje del kit','Empaque del kit en forma de cocina','Moldes para cortar alimentos con formas divertidas','Sitio web del kit','Cuento «Las aventuras de Sam el conejo»','El cuento conecta con un juego en el celular por código QR','Recetario «El menú de Sam»','El recetario presentado en pantalla']},
+ {f:'identidad',t:'Identidad Minikaizen',c:'Manual de marca',d:'Manual de identidad corporativa de Minikaizen.',imgs:['mk-01','mk-04','mk-08','mk-10','mk-12','mk-16','mk-17','mk-18','mk-20','recetas'],caps:['Portada del manual de identidad corporativa','El logotipo y sus versiones','Área de seguridad y proporciones del logo','Usos del logotipo sobre colores planos','Usos sobre fondos de color y fotografía','Aplicación en material POP: camisetas, gorras, delantales, sombrillas','Aplicación en empaques, papelería y objetos','Identidad en redes sociales','Plantillas para publicaciones en redes','E-book «7 recetas de desayunos nutritivos» con la identidad aplicada']},
+ {f:'info',t:'Infografía Bolo criollo',c:'Patrimonio de Santander',d:'Infografía ilustrada sobre el origen, las reglas y la cancha del bolo criollo.',imgs:['bolo-mockup','bolo']},
+ {f:'info',t:'Medallero latinoamericano',c:'Infografía',d:'Medallas de los países de América Latina en los Juegos Olímpicos y el origen del nombre de cada país.',imgs:['medallero-mockup','medallero']},
+ {f:'info',t:'Bogotá Ciudad Inteligente',c:'Señalética',d:'Sistema de pictogramas y señal reguladora para zonas seguras, parqueaderos, ciclorrutas y zonas para mujeres.',imgs:['senaletica','pictogramas']},
+ {f:'ilustra',t:'Afiche «Let ’em have it»',c:'Ilustración y texturas',d:'Reinterpretación de un afiche de guerra con texturas y color.',imgs:['afiche']},
+ {f:'ui',t:'Copoco App',c:'Prototipo móvil',d:'App del Código Nacional de Policía y Convivencia.',imgs:['copoco','copoco-1','copoco-2','copoco-3','copoco-4','copoco-pantallas'],caps:['Presentación de las pantallas principales','Inicio, ingreso, registro y menú principal','Conoce el código: convivencia, multas y su valor','Lugares de pago, CAI cercanos, paz y salvo y denuncias','Peticiones, glosario y situaciones comunes de convivencia','Splash, registro e ícono de la app']},
+ {f:'ui',t:'Mi Biciapp',c:'Prototipo móvil',d:'App para ciclistas en Bogotá.',imgs:['biciapp','bici-1','bici-2','bici-3','bici-4'],caps:['Presentación de la app','Pantalla de inicio, registro e ingreso','Rutas en el mapa y talleres de bicicletas cercanos','Tienda de bicicletas con ficha de producto','Chat con el mecánico, llamada e historial de servicios']},
+ {f:'ui ilustra',t:'Muysccubun',c:'Videojuego educativo',d:'Videojuego de plataformas sobre la cultura muisca, hecho en Construct 2.',imgs:['juego','muisca-nivel','muisca-menu','muisca-seleccion','muisca-historia','muisca-arbol','muisca-cueva','muisca-cueva2','muisca-pausa'],caps:['El menú del juego presentado en pantalla','Nivel 1: el orfebre recorre la selva saltando entre plataformas y recogiendo objetos','Menú principal: jugar, cargar partida o cerrar','Selección de personaje','La historia arranca con la leyenda de la princesa de la laguna de Guatavita','El árbol que da entrada a la cueva','Nivel en la cueva: la luz alrededor del personaje deja ver solo una parte del camino','Plataformas en la oscuridad de la cueva','Menú de pausa para guardar, cargar o salir; arriba, los objetos recogidos']},
+ {f:'redes',t:'Posts para redes sociales',c:'Social media',link:'https://www.behance.net/gallery/85619749/Post-Redes-Sociales',d:'Publicaciones para Facebook e Instagram.',imgs:['post-01','post-02','post-03','post-04','post-05','post-06','post-07','post-08','post-09','post-10','post-11','post-12','post-13','post-14'],caps:['Transipiales: campaña de semana de receso','Transipiales: volvemos a las carreteras','Transipiales: pregunta para generar conversación','Transipiales: #movilízateporcolombia','Transipiales: programa tu viaje de Semana Santa','Transipiales: servicio especial y destinos','El Jardín del Arcoíris: inscripciones abiertas','El Jardín del Arcoíris: casa abierta sobre admisiones','El Jardín del Arcoíris: inscripciones para 2019','El Jardín del Arcoíris: matrículas abiertas','El Jardín del Arcoíris: Día del Docente','Clínica Leonardo Pinzón: tratamiento de fertilidad','Clínica Leonardo Pinzón: cuida tu columna vertebral','Clínica Leonardo Pinzón: #PlanDoctorHero']},
+ {f:'ui',t:'Magical Bus',c:'Sitio web',d:'Página de transporte turístico, diseño completo de la página de inicio.',imgs:['magicalbus'],tall:true},
+ {f:'ui',t:'Carrocerías JGB',c:'Sitio web',d:'Página de una fábrica de carrocerías para buses, con catálogo de productos.',imgs:['carrocerias'],tall:true},
+ {f:'ui',t:'Medicina Biológica Especializada',c:'Sitio web',d:'Página de la clínica del Dr. Leonardo Pinzón.',imgs:['medicina'],tall:true},
+];
+const box=document.getElementById('works');
+WORKS.forEach((w,i)=>{
+  const b=document.createElement('button');b.type='button';b.className='work';b.dataset.f=w.f;b.dataset.i=i;
+  b.innerHTML=`<div class="frame"><img src="img/${w.imgs[0]}.webp" alt="${w.t}" loading="lazy"${w.tall?' style="aspect-ratio:4/5;object-fit:cover;object-position:top"':''}></div><div class="cap"><b>${w.t}</b><span class="mono">${w.c}</span></div>${w.imgs.length>1?`<div class="count">${w.imgs.length} imágenes</div>`:''}`;
+  b.addEventListener('click',()=>openV(i,0));
+  box.appendChild(b);
+  if(i===5){const v=document.createElement('div');v.className='video-card';v.dataset.f='ilustra';
+    v.innerHTML=`<video src="media/asado.mp4" poster="img/asado-poster.webp" controls preload="none" playsinline></video><div class="cap" style="display:flex;justify-content:space-between;gap:12px;padding:12px 2px 0"><b style="font-family:var(--display);font-size:18px;font-weight:600">Video animado «Asado a domicilio»</b><span class="mono" style="color:var(--muted);font-size:12px;white-space:nowrap">Motion graphics</span></div>`;
+    box.appendChild(v);}
+});
+document.querySelectorAll('.filters button').forEach(btn=>btn.addEventListener('click',()=>{
+  document.querySelectorAll('.filters button').forEach(x=>x.setAttribute('aria-pressed',x===btn));
+  const f=btn.dataset.f;box.querySelectorAll('[data-f]').forEach(el=>el.hidden=!(f==='all'||el.dataset.f.split(' ').includes(f)));
+}));
+const APPS={
+ albo:{host:'alboeventos-panel',t:'Catálogo de Alexa',imgs:[['app-albo-hoy','Inicio del día: eventos, turnos libres de las próximas 3 semanas y clientes esperando respuesta'],['app-albo-paquetes','Paquetes y precios que Alexa ofrece por WhatsApp'],['app-albo-fotos','Fotos y videos de Alexa: 91 archivos por categoría que el agente envía por WhatsApp'],['app-albo-politicas','Políticas: lo que se le dice al cliente, cómo trabaja Alexa y lo que nunca se dice'],['app-albo-cotizar','Cotizador: con lo que dijo el cliente arma la cotización y revisa si el turno está libre']]},
+ trans:{host:'transipiales-panel',t:'Panel de rutas',imgs:[['app-trans-rutas','Rutas y horarios agrupados por ciudad de salida'],['app-trans-negocio','Negocio: compra de tiquetes, medios de pago, políticas y contacto que consulta el agente'],['app-trans-ruta','Detalle de una ruta: sus 18 salidas, la línea y las comodidades a bordo']]},
+ dash:{host:'kmedia-dashboard',t:'CRM y tablero de agentes',imgs:[['app-dash-kanban','Embudo de procesos: cada cliente avanza por etapas hasta tener su agente en vivo'],['app-dash-campos','Campos de Kommo de un cliente: 61 campos organizados por grupo'],['app-dash-prompts','Prompts y agentes: los prompts de cada cliente, listos para copiar']]},
+};
+document.querySelectorAll('.appgal').forEach(g=>{
+  const a=APPS[g.dataset.app];const item={t:a.t,d:'',imgs:a.imgs.map(x=>x[0]),caps:a.imgs.map(x=>x[1])};
+  g.innerHTML=`<button type="button" class="zoom"><div class="browser"><div class="bar"><i></i><i></i><i></i><span>${a.host}</span></div><div class="shot"><img src="img/${a.imgs[0][0]}.webp" alt="${a.imgs[0][1]}" loading="lazy"></div></div></button><div class="thumbs">${a.imgs.map((x,k)=>`<button type="button" data-k="${k}" aria-label="${x[1]}"${k===0?' aria-current="true"':''}><img src="img/${x[0]}.webp" alt="" loading="lazy"></button>`).join('')}</div>`;
+  let sel=0;const main=g.querySelector('.shot img');
+  g.querySelectorAll('.thumbs button').forEach(b=>b.addEventListener('click',()=>{sel=+b.dataset.k;main.src=`img/${a.imgs[sel][0]}.webp`;main.alt=a.imgs[sel][1];
+    g.querySelectorAll('.thumbs button').forEach(x=>x.setAttribute('aria-current',x===b));}));
+  g.querySelector('.zoom').addEventListener('click',()=>openItem(item,sel));
+});
+const dlg=document.getElementById('viewer');let cur={item:null,k:0};
+function openV(w,k){openItem(WORKS[w],k)}
+function render(){const w=cur.item;const img=document.getElementById('v-img');img.src=`img/${w.imgs[cur.k]}.webp`;img.alt=w.t;
+  document.getElementById('v-title').textContent=w.t;document.getElementById('v-desc').textContent=w.caps?w.caps[cur.k]:w.d;
+  const vl=document.getElementById('v-link');vl.hidden=!w.link;if(w.link)vl.href=w.link;
+  document.getElementById('v-count').textContent=`${cur.k+1} / ${w.imgs.length}`;
+  document.getElementById('v-prev').disabled=cur.k===0;document.getElementById('v-next').disabled=cur.k===w.imgs.length-1;
+  const vb=document.getElementById('v-box');vb.classList.toggle('tall',!!w.tall);vb.scrollTop=0;}
+function openItem(item,k){cur={item,k};render();try{dlg.showModal()}catch(e){dlg.setAttribute('open','')}}
+document.getElementById('v-close').onclick=()=>dlg.close();
+document.getElementById('v-prev').onclick=()=>{if(cur.k>0){cur.k--;render()}};
+document.getElementById('v-next').onclick=()=>{if(cur.k<cur.item.imgs.length-1){cur.k++;render()}};
+dlg.addEventListener('click',e=>{if(e.target.classList.contains('vimg')||e.target.classList.contains('vwrap'))dlg.close()});
+dlg.addEventListener('keydown',e=>{if(e.key==='ArrowRight')document.getElementById('v-next').click();if(e.key==='ArrowLeft')document.getElementById('v-prev').click()});
+
+const SK=[['Adobe Photoshop',5],['Adobe Illustrator',5],['Adobe InDesign',5],['Figma',5],['WordPress',5],['Mail marketing',5],['n8n y agentes de IA',4],['Kommo CRM',4],['Google Analytics',4],['Google Tag Manager',4],['Microsoft Office',5]];
+document.getElementById('skills').innerHTML=SK.map(([n,v])=>`<div class="skill"><span>${n}</span><span class="dots" aria-label="${v} de 5">${[1,2,3,4,5].map(i=>`<i class="${i<=v?'on':''}"></i>`).join('')}</span></div>`).join('');
+
+document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',()=>{
+  const el=document.getElementById(b.dataset.copy);const txt=el.textContent.trim();
+  const ok=()=>{const o=b.textContent;b.textContent='Copiado';setTimeout(()=>b.textContent=o,1600)};
+  const sel=()=>{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selecciónalo y copia';};
+  try{navigator.clipboard.writeText(txt).then(ok,sel)}catch(e){sel()}
+}));
+</script>
+</body>
+</html>
